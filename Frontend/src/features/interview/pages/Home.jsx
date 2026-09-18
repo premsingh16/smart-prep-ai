@@ -3,6 +3,7 @@ import '../style/home.scss'
 import { useInterview } from '../hooks/useInterview'
 import { useNavigate } from 'react-router'
 import Loader from '../../../components/Loader'; 
+import { useAuth } from '../../auth/hooks/useAuth'
 
 function Home() {
   const { loading, generateReport, reports, getReports } = useInterview()
@@ -19,6 +20,7 @@ function Home() {
     getReports();
   }, []);
 
+  const { handleLogout } = useAuth();
   const handleGenerateReport = async () => {
     const resumeFile = resumeInputRef.current?.files[0];
     
@@ -54,6 +56,19 @@ function Home() {
 
   return (
     <main className="home">
+      
+     
+      <div className="logout-container">
+        <button 
+          className="logout-btn"
+          onClick={async () => { 
+            await handleLogout(); 
+            navigate('/login'); 
+          }} 
+        >
+          Logout
+        </button>
+      </div>
       <div className="header">
         <h1>Create Your Custom <span>Interview Plan</span></h1>
         <p>Let our AI analyze the job requirements and your unique profile to build a winning strategy.</p>

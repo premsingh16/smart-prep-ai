@@ -42,6 +42,7 @@ export const useAuth = () =>{
         try{
             const data = await logout()
             setUser(null)
+            localStorage.clear();
         }
         catch(err){
             console.error('file(useAuth.js)  Error occurred while logging out:', err);

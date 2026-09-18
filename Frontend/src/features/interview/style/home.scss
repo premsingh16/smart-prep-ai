@@ -455,4 +455,44 @@ $accent-pink: #f43f5e;
     border-radius: 12px;
   }
 }
+ .logout-container {
+  position: absolute;
+  top: 24px;
+  right: 30px;
+  z-index: 100;
+
+  /* Mobile view ke liye responsive fix */
+  @media (max-width: 768px) {
+    position: relative;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: flex-end; /* Button ko right side align rakhega */
+    padding: 15px 20px 10px 0; /* Header ke upar breathing space */
+  }
+
+  .logout-btn {
+    padding: 8px 16px;
+    background-color: transparent;
+    color: #ff4b4b;
+    border: 1px solid #ff4b4b;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+
+    /* Mobile par button thoda compact ho jayega */
+    @media (max-width: 768px) {
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+
+    &:hover {
+      background-color: #ff4b4b;
+      color: #ffffff;
+      box-shadow: 0 4px 10px rgba(255, 75, 75, 0.3);
+    }
+  }
+}
 }

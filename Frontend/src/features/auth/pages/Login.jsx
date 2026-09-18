@@ -3,7 +3,7 @@ import '../auth.form.scss'
 import { useNavigate, Link } from 'react-router'
 import { useAuth } from '../hooks/useAuth'
 import Loader from '../../../components/Loader'
-import { Eye, EyeOff } from 'lucide-react' // Lucide import
+import { Eye, EyeOff } from 'lucide-react' 
 
 function Login() {
     const { loading, handleLogin } = useAuth()
@@ -62,7 +62,6 @@ function Login() {
                             className="eye-icon" 
                             onClick={() => setShowPassword(!showPassword)}
                         >
-                            {/* Lucide Icons conditionally render ho rahe hain */}
                             {showPassword ? <EyeOff size={20} color="#666" /> : <Eye size={20} color="#666" />}
                         </span>
                     </div>
