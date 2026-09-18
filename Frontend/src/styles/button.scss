@@ -1,0 +1,29 @@
+/* Global Button Styles */
+.button {
+    padding: 0.85rem 1.5rem; /* Slightly thicker for a modern feel */
+    border-radius: 0.5rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: all 0.2s ease;
+
+    /* The satisfying click effect */
+    &:active {
+        transform: translateY(1px) scale(0.98);
+        box-shadow: none !important;
+    }
+
+    /* The new Blue/Cyan Gradient */
+    &.primary-button {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        color: #000;
+        box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79, 172, 254, 0.6);
+        }
+    }
+}

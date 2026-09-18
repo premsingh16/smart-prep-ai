@@ -1,0 +1,38 @@
+.loader-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: transparent; // Adjust this if you need a specific background
+  
+  .spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(79, 172, 254, 0.2); // Light blue track
+    border-top-color: #4facfe; // Bright blue spinning part
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+  }
+
+  .loader-text {
+    font-size: 1.5rem;
+    color: #4facfe;
+    font-weight: 500;
+    margin: 0;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}

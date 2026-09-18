@@ -1,0 +1,458 @@
+$bg-main: #0b0f19;
+$bg-card: #121826;
+$bg-input: #1a2235;
+$text-primary: #ffffff;
+$text-secondary: #94a3b8;
+$border-color: #273346;
+$accent-pink: #f43f5e;
+
+.home {
+  width: 100%;
+  min-height: 100vh;
+  background-color: $bg-main;
+  color: $text-primary;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 1rem;
+  box-sizing: border-box;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Page Header Section */
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem 1rem;
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    letter-spacing: -0.05em; // Makes it look tighter and more modern
+
+    /* This targets your <span> to create the sleek AI gradient effect */
+    span {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      
+      /* Optional: Adds a tiny glow behind the text */
+      filter: drop-shadow(0px 4px 24px rgba(79, 172, 254, 0.4));
+    }
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: #a1a1aa; // A soft, clean gray (Zinc 400)
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+}
+
+/* Make it responsive for smaller screens */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2.2rem;
+  }
+  .header p {
+    font-size: 1rem;
+  }
+}
+ /* Main Card Styles (Blue Theme) */
+.interview-card {
+  background-color: $bg-card;
+  backdrop-filter: blur(12px); 
+  border: 1px solid $border-color;
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.card-content {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid $border-color;
+  
+  @media (max-width: 850px) {
+    flex-direction: column;
+  }
+}
+
+/* Columns Layout */
+.left-col, .right-col {
+  flex: 1;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Job Description Styles (Left Column) */
+.left-col {
+  border-right: 1px solid $border-color;
+  
+  @media (max-width: 850px) {
+    border-right: none;
+    border-bottom: 1px solid $border-color;
+  }
+
+  textarea {
+    flex: 1;
+    min-height: 300px;
+    background-color: $bg-input;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    color: $text-primary;
+    padding: 1.25rem;
+    font-size: 0.95rem;
+    font-family: inherit;
+    resize: none;
+    outline: none;
+    line-height: 1.6; 
+    transition: all 0.2s ease;
+    
+    &:focus {
+      border-color: #4facfe; /* Blue border */
+      box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.2); /* Blue glow */
+    }
+
+    &::placeholder {
+      color: #64748b;
+    }
+  }
+
+  .char-count {
+    text-align: right;
+    font-size: 0.8rem;
+    color: $text-secondary;
+  }
+}
+
+/* Shared Column Header */
+.col-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .title-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    h2 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 0;
+      color: $text-primary;
+    }
+  }
+
+  .badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.3rem 0.6rem;
+    border-radius: 1rem;
+    letter-spacing: 0.05em;
+
+    &.required {
+      color: #4facfe; /* Changed to theme blue */
+      background-color: rgba(79, 172, 254, 0.1); /* Soft blue background */
+      border: 1px solid rgba(79, 172, 254, 0.2); /* Subtle blue border */
+    }
+    
+    &.best-results {
+      color: #4facfe; /* Blue text */
+      background-color: rgba(79, 172, 254, 0.1); /* Soft blue bg */
+      border: 1px solid rgba(79, 172, 254, 0.2);
+    }
+  }
+}
+
+/* Profile Styles (Right Column) */
+.right-col {
+  .upload-section {
+    .upload-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      
+      h3 {
+        font-size: 0.95rem;
+        font-weight: 500;
+        margin: 0;
+      }
+    }
+
+    .upload-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: $bg-input;
+      border: 2px dashed #475569; 
+      border-radius: 0.5rem;
+      padding: 2.5rem 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        border-color: #4facfe; /* Blue border on hover */
+        background-color: rgba(79, 172, 254, 0.05); /* Blue hover tint */
+        transform: translateY(-2px); 
+      }
+
+      .upload-icon {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: #4facfe; /* Blue icon */
+      }
+
+      .upload-title {
+        font-size: 0.95rem;
+        font-weight: 500;
+        margin: 0 0 0.25rem 0;
+        color: $text-primary;
+      }
+
+      .upload-subtitle {
+        font-size: 0.8rem;
+        color: $text-secondary;
+        margin: 0;
+      }
+    }
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: $text-secondary;
+    font-size: 0.85rem;
+    font-weight: 600;
+    
+    &::before, &::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid $border-color;
+    }
+    
+    span {
+      padding: 0 1rem;
+    }
+  }
+
+  .self-desc-section {
+    h3 {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin: 0 0 0.75rem 0;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 120px;
+      background-color: $bg-input;
+      border: 1px solid transparent;
+      border-radius: 0.5rem;
+      color: $text-primary;
+      padding: 1rem;
+      font-size: 0.95rem;
+      font-family: inherit;
+      resize: vertical; 
+      outline: none;
+      transition: all 0.2s ease;
+      
+      &:focus {
+        border-color: #4facfe; /* Blue border */
+        box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.2); /* Blue glow */
+      }
+
+      &::placeholder {
+        color: #64748b;
+      }
+    }
+  }
+
+  .info-banner {
+    background-color: rgba(79, 172, 254, 0.05); /* Soft blue tint */
+    border: 1px solid rgba(79, 172, 254, 0.2);
+    border-left: 4px solid #4facfe; /* Blue side stripe */
+    border-radius: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: auto; 
+
+    .info-icon {
+      color: #4facfe; /* Blue icon */
+      font-size: 1.1rem;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: $text-primary;
+      line-height: 1.4;
+
+      strong {
+        color: white;
+      }
+    }
+  }
+}
+
+/* Main Card Footer */
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2.5rem;
+  background-color: rgba(0, 0, 0, 0.1); 
+  
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 1.25rem;
+    text-align: center;
+  }
+
+  .footer-note {
+    color: $text-secondary;
+    font-size: 0.85rem;
+  }
+
+  .generate-btn {
+    /* Blue gradient matching the header */
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: #000; /* Black text creates perfect contrast with the bright cyan */
+    border: none;
+    padding: 0.85rem 1.75rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* Cyan shadow */
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(79, 172, 254, 0.6);
+    }
+    
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 10px rgba(79, 172, 254, 0.4);
+    }
+  }
+}
+  /* Page Footer Section */
+.page-footer {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-top: 4rem;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05); /* Very subtle top line */
+  width: 100%;
+
+  a {
+    color: #888; // Muted gray so it isn't distracting
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      color: #4facfe; // Glow up on hover
+      transform: translateY(-1px); // Tiny lift effect
+    }
+  }
+}
+
+/* Responsive adjustment for mobile */
+@media (max-width: 768px) {
+  .page-footer {
+    gap: 1.5rem;
+  }
+}
+  /*Recent Reports Section */
+.recent-reports-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 3rem auto;
+
+  h2 {
+    margin-bottom: 1.5rem;
+    color: #fff;
+  }
+
+  .reports-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .report-card {
+    background-color: #1e1e24;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+
+    &:hover {
+      border-color: #4facfe;
+      transform: translateY(-2px); // Gives a nice lift effect
+    }
+
+    h3 {
+      margin: 0 0 0.5rem 0;
+      color: #fff;
+      font-size: 1.2rem;
+    }
+
+    .report-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+
+      .match-badge {
+        background-color: rgba(79, 172, 254, 0.1);
+        color: #4facfe;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.9rem;
+      }
+
+      .date-text {
+        color: #888;
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  .no-reports-msg {
+    color: #888;
+    text-align: center;
+    padding: 2rem;
+    background-color: #1e1e24;
+    border-radius: 12px;
+  }
+}
+}
