@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-// the work of this file is to establish connection to the databse(which is mongoDB here)
+
 async function connectToDB() {
     try{
         await mongoose.connect(process.env.MONGO_URI);
