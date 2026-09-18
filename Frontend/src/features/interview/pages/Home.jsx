@@ -83,7 +83,6 @@ function Home() {
                 <span className="icon">💼</span>
                 <h2>Target Job Description</h2>
               </div>
-              <span className="badge required">REQUIRED</span>
             </div>
             <textarea
               onChange={(e)=> {setJobDescription(e.target.value)}}
@@ -109,7 +108,6 @@ function Home() {
             <div className="upload-section">
               <div className="upload-header">
                 <h3>Upload Resume</h3>
-                <span className="badge required">REQUIRED</span>
               </div>
               
               <label 
@@ -151,7 +149,6 @@ function Home() {
             <div className="self-desc-section">
               <div className="upload-header">
                 <h3>Quick Self-Description</h3>
-                <span className="badge required">REQUIRED</span>
               </div>
               <textarea
                 onChange={(e)=> {setSelfDescription(e.target.value)}}
